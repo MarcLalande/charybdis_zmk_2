@@ -1,62 +1,7 @@
 layout: {zmk_keyboard: charybdis}
 layers:
-  COLEMAK:
-  - ESC
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - BACK SPACE
-  - TAB
-  - Q
-  - W
-  - F
-  - P
-  - B
-  - J
-  - L
-  - U
-  - Y
-  - ''''
-  - DEL
-  - LSHIFT
-  - {t: A, h: LCTRL}
-  - {t: R, h: LALT}
-  - {t: S, h: LGUI}
-  - {t: T, h: LSHIFT}
-  - G
-  - M
-  - {t: N, h: RSHIFT}
-  - {t: E, h: RGUI}
-  - {t: I, h: RALT}
-  - {t: O, h: RCTRL}
-  - RSHIFT
-  - CAPS
-  - Z
-  - X
-  - C
-  - D
-  - V
-  - K
-  - H
-  - ','
-  - .
-  - '?'
-  - RALT
-  - LCMD
-  - SPACE
-  - NUMBERS
-  - ENTER
-  - BSPC
-  - '&mkp MB1'
-  - '&mkp MB2'
-  - NAV
+  COLEMAK: [ESC, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', BACK SPACE, TAB, Q, W, F, P, B, J, L, U, Y, '''', DEL, LSHIFT, '', '', '', '', G, M, '', '', '',
+    '', RSHIFT, CAPS, Z, X, C, D, V, K, H, ',', ., '?', RALT, LCMD, SPACE, NUMBERS, ENTER, BSPC, '&mkp MB1', '&mkp MB2', NAV]
   NUMBERS:
   - F1
   - F2
@@ -83,16 +28,16 @@ layers:
   - $
   - {t: ▽, type: trans}
   - '|'
-  - {t: (, h: LCTRL}
-  - {t: ), h: LALT}
-  - {t: '{', h: LGUI}
-  - {t: '}', h: LSHIFT}
+  - ''
+  - ''
+  - ''
+  - ''
   - '='
   - DEV TOOLS
-  - {t: LEFT, h: RSHIFT}
-  - {t: DOWN, h: RGUI}
-  - {t: RIGHT, h: RALT}
-  - {t: +, h: RCTRL}
+  - ''
+  - ''
+  - ''
+  - ''
   - ''
   - ;
   - '['
@@ -140,9 +85,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '|'
-  - {t: '4', h: LCTRL}
-  - {t: '5', h: LALT}
-  - {t: '6', h: LGUI}
+  - ''
+  - ''
+  - ''
   - TAB
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -342,18 +287,3 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-combos:
-- p: [31, 28]
-  k: CAPS WORD
-- p: [43, 44]
-  k: L CLK
-- p: [44, 45]
-  k: R CLK
-- p: [44, 45, 43]
-  k: M CLK
-- p: [40, 39]
-  k: L CLK
-- p: [38, 39]
-  k: R CLK
-- p: [38, 39, 40]
-  k: M CLK
