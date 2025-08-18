@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: charybdis}
 layers:
   COLEMAK: [ESC, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', BACK SPACE, TAB, Q, W, F, P, B, J, L, U, Y, '''', DEL, LSHIFT, '', '', '', '', G, M, '', '', '',
-    '', RSHIFT, CAPS, Z, X, C, D, V, K, H, ',', ., '?', RALT, LCMD, SPACE, NUMBERS, ENTER, BSPC, '&mkp MB1', '&mkp MB2', NAV]
+    '', RSHIFT, CAPS, Z, X, C, D, V, K, H, ',', ., '?', RALT, L CLK, LCMD, NUMBERS, ENTER, BSPC, '&mkp MB1', '&mkp MB2', NAV]
   NUMBERS:
   - F1
   - F2
