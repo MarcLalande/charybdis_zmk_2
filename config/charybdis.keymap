@@ -8,6 +8,7 @@
 
 / {
     /* input config for mouse move mode */
+
     trackball_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -20,6 +21,7 @@
     };
 
     /* input config for snipe mode */
+
     trackball_snipe_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -32,6 +34,7 @@
     };
 
     /* input config for mouse scroll mode */
+
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
@@ -44,6 +47,7 @@
     };
 
     /* define a resolution down scaler only for INPUT_REL_WHEEL */
+
     ib_wheel_scaler: ib_wheel_scaler {
         compatible = "zmk,input-behavior-scaler";
         #binding-cells = <2>;
@@ -52,6 +56,7 @@
     };
 
     /* adjust cooldown waiting period for mouse key layer after activated */
+
     ib_toggle_layer: ib_toggle_layer {
         compatible = "zmk,input-behavior-tog-layer";
         #binding-cells = <1>;
@@ -60,37 +65,37 @@
 
     combos {
         compatible = "zmk,combos";
-        
+
         caps_word {
             bindings = <&caps_word>;
             key-positions = <31 28>;
         };
-        
+
         rh_leftClick {
             bindings = <&mkp LCLK>;
             key-positions = <43 44>;
         };
-        
+
         rh_rightClick {
             bindings = <&mkp RCLK>;
             key-positions = <44 45>;
         };
-        
+
         rh_middleClick {
             bindings = <&mkp MCLK>;
             key-positions = <44 45 43>;
         };
-        
+
         lh_leftClick {
             bindings = <&mkp LCLK>;
             key-positions = <40 39>;
         };
-        
+
         lh_rightClick {
             bindings = <&mkp RCLK>;
             key-positions = <38 39>;
         };
-        
+
         lh_middleClick {
             bindings = <&mkp MCLK>;
             key-positions = <38 39 40>;
@@ -102,6 +107,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HMR";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
@@ -109,11 +115,12 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 53 54 51 52 55>;
             hold-trigger-on-release;
         };
-        
+
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
@@ -127,74 +134,92 @@
         compatible = "zmk,keymap";
 
         // Layer 0: Colemak-DH Base
+
         colemak_layer {
             bindings = <
-                &kp ESC    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5         &kp N6    &kp N7    &kp N8    &kp N9    &kp N0        &kp BACKSPACE
-                &kp TAB    &kp Q     &kp W     &kp F     &kp P     &kp B          &kp J     &kp L     &kp U     &kp Y     &kp SINGLE_QUOTE &kp DEL
-                &kp LSHIFT &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHIFT T &kp G      &kp M     &hmr RSHIFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp RSHIFT
-                &kp CAPS   &kp Z     &kp X     &kp C     &kp D     &kp V          &kp K     &kp H     &kp COMMA &kp DOT   &kp QUESTION  &kp RALT
-                                     &kp LCMD  &kp SPACE &mo 1     &kp ENTER      &kp BSPC  &mkp MB1  &mkp MB2  &mo 2
+&kp ESC     &kp N1        &kp N2       &kp N3       &kp N4         &kp N5       &kp N6     &kp N7         &kp N8       &kp N9       &kp N0            &kp BACKSPACE
+&kp TAB     &kp Q         &kp W        &kp F        &kp P          &kp B        &kp J      &kp L          &kp U        &kp Y        &kp SINGLE_QUOTE  &kp DEL
+&kp LSHIFT  &hml LCTRL A  &hml LALT R  &hml LGUI S  &hml LSHIFT T  &kp G        &kp M      &hmr RSHIFT N  &hmr RGUI E  &hmr RALT I  &hmr RCTRL O      &kp RSHIFT
+&kp CAPS    &kp Z         &kp X        &kp C        &kp D          &kp V        &kp K      &kp H          &kp COMMA    &kp DOT      &kp QUESTION      &kp RALT
+                                       &kp LCMD     &kp SPACE      &mo 1        &kp ENTER  &kp BSPC
+                                                    &mkp LCLK      &mkp RCLK    &mo 2
             >;
+
             label = "COLEMAK";
         };
 
         // Layer 1: Numbers and Symbols
+
         numbers_layer {
             bindings = <
-                &kp F1     &kp F2    &kp F3    &kp F4    &kp F5    &kp F6         &kp F7    &kp F8    &kp F9    &kp F10   &kp F11       &kp F12
-                &kp EXCL   &kp AMPS  &kp BSLH  &kp SQT   &kp COLON &kp UNDER      &kp LT    &kp GT    &kp UP    &kp HASH  &kp DOLLAR    &trans
-                &kp PIPE   &hml LCTRL LPAR &hml LALT RPAR &hml LGUI LBRC &hml LSHIFT RBRC &kp EQUAL &kp F12   &hmr RSHIFT LEFT &hmr RGUI DOWN &hmr RALT RIGHT &hmr RCTRL PLUS &none
-                &kp SEMI   &kp LBKT  &kp RBKT  &kp PRCNT &kp ASTRK &kp MINUS      &none     &kp AT    &kp DOT   &kp RBKT  &none         &kp EQUAL
-                                     &kp LWIN  &kp SPACE &none     &kp DQT        &kp DOT   &mkp MB1  &mkp MB2  &kp SLASH
+&kp F1    &kp F2           &kp F3          &kp F4          &kp F5            &kp F6       &kp F7     &kp F8            &kp F9          &kp F10          &kp F11          &kp F12
+&kp EXCL  &kp AMPS         &kp BSLH        &kp SQT         &kp COLON         &kp UNDER    &kp LT     &kp GT            &kp UP          &kp HASH         &kp DOLLAR       &trans
+&kp PIPE  &hml LCTRL LPAR  &hml LALT RPAR  &hml LGUI LBRC  &hml LSHIFT RBRC  &kp EQUAL    &kp F12    &hmr RSHIFT LEFT  &hmr RGUI DOWN  &hmr RALT RIGHT  &hmr RCTRL PLUS  &none
+&kp SEMI  &kp LBKT         &kp RBKT        &kp PRCNT       &kp ASTRK         &kp MINUS    &none      &kp AT            &kp DOT         &kp RBKT         &none            &kp EQUAL
+                                           &kp LWIN        &kp SPACE         &none        &kp DQT    &kp DOT
+                                                           &mkp MB1          &mkp MB2     &kp SLASH
             >;
+
             label = "NUMBERS";
         };
 
         // Layer 2: Navigation and Function keys
+
         nav_layer {
             bindings = <
-                &trans     &trans    &none     &none     &mkp LCLK &mkp RCLK      &trans    &trans    &trans    &trans    &trans        &trans
-                &trans     &kp EXCL  &kp N7    &kp N8    &kp N9    &trans         &trans    &trans    &trans    &trans    &trans        &trans
-                &kp PIPE   &hml LCTRL N4 &hml LALT N5 &hml LGUI N6 &kp TAB &trans    &trans    &trans    &trans    &trans    &trans        &trans
-                &kp SEMI   &kp N1    &kp N2    &kp N3    &trans    &trans         &trans    &trans    &trans    &trans    &trans        &trans
-                                     &kp N0    &trans    &trans    &trans         &trans    &trans    &trans    &kp LALT
+&trans    &trans         &none         &none         &mkp LCLK  &mkp RCLK    &trans    &trans  &trans  &trans  &trans  &trans
+&trans    &kp EXCL       &kp N7        &kp N8        &kp N9     &trans       &trans    &trans  &trans  &trans  &trans  &trans
+&kp PIPE  &hml LCTRL N4  &hml LALT N5  &hml LGUI N6  &kp TAB    &trans       &trans    &trans  &trans  &trans  &trans  &trans
+&kp SEMI  &kp N1         &kp N2        &kp N3        &trans     &trans       &trans    &trans  &trans  &trans  &trans  &trans
+                                       &kp N0        &trans     &trans       &trans    &trans
+                                                     &trans     &trans       &kp LALT
             >;
+
             label = "NAV";
         };
 
         // Layer 3: Scroll mode
+
         scroll_layer {
             bindings = <
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                              &trans &trans &trans &trans    &trans &trans &trans &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
             >;
+
             label = "SCROLL";
         };
 
         // Layer 4: Sniper mode
+
         sniper_layer {
             bindings = <
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                              &trans &trans &trans &trans    &trans &trans &trans &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
+                                &trans  &trans    &trans
             >;
+
             label = "SNIPER";
         };
 
         // Layer 5: Function/Settings
+
         function_layer {
             bindings = <
-                &ext_power EP_TOG &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                              &trans &trans &trans &trans               &trans &trans &trans &trans
+&ext_power EP_TOG  &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans  &trans  &trans
+&trans             &trans        &trans        &trans        &trans        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                               &trans        &trans        &trans          &trans  &trans
+                                                             &trans        &trans          &trans
             >;
+
             label = "FUNCTION";
         };
     };
