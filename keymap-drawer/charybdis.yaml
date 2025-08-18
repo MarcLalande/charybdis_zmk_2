@@ -54,8 +54,8 @@ layers:
   - {t: LEFT GUI, h: NAV-FUN}
   - {t: ENTER, h: NUMBERS}
   - BACK SPACE
-  - R CLK
-  - L CLK
+  - '&mkp MB1'
+  - '&mkp MB2'
   - NAV-FUN
   NUMBERS:
   - {t: ▽, type: trans}
